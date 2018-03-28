@@ -11,7 +11,7 @@
 * 创新点凝练：
 
 ## 记录会议“思维导图”
-![](../images/mindmap1-gc.png)
+![](../images/meeting1-gc.png)
 
 **by：高晨**
 
