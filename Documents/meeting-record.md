@@ -30,5 +30,5 @@
 ![meeting1-dyt](https://github.com/sysu-badass/Dashboard/raw/master/images/meeting1-dyt.png)
 **by：邓玉婷**
 
-![]()
-**by：**
+![](../images/meeting1-lzh.png)
+**by：李舟航**
