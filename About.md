@@ -1,7 +1,9 @@
 
 # About Project
 
-----------
+Project of Software System Analysis and Design by Maolin Pan, SYSU, 2018.
+
+---------- 
 Records of EatOut-Eorder development progress.
 
 ## Team & Division
@@ -14,6 +16,10 @@ Records of EatOut-Eorder development progress.
 ## Core Artifacts
 
 - [调研报告](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Investigation-report.md)
+- [项目愿景](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Vision.pdf)
+- [产品特性](https://github.com/sysu-badass/Dashboard/blob/master/Documents/backlog.md)
+- [会议记录](https://github.com/sysu-badass/Dashboard/blob/master/Documents/meeting-record.md)
+- [详述用例](https://github.com/sysu-badass/Dashboard/blob/master/Documents/User-case/Full-UC-Eorder.pdf)
 
 ----------
 
@@ -35,6 +41,7 @@ Week 1 (2018/04/01)
  - 编码&测试：确定技术原型
     - 前端：熟悉前端源码结构
     - 后台：熟悉后台源码结构
+    
      
 Week 2 (2018/04/08)
 
@@ -45,6 +52,7 @@ Week 2 (2018/04/08)
  - 编码&测试：学习持续集成
     - 前端：熟悉前端源码结构
     - 后台：熟悉后台源码结构
+    
   
 Week 3 (2018/04/15)
 
