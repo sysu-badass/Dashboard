@@ -19,7 +19,7 @@ Records of EatOut-Eorder development progress.
 - [项目愿景](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Vision.pdf)
 - [产品特性](https://github.com/sysu-badass/Dashboard/blob/master/Documents/backlog.md)
 - [会议记录](https://github.com/sysu-badass/Dashboard/blob/master/Documents/meeting-record.md)
-- [详述用例](https://github.com/sysu-badass/Dashboard/raw/master/Documents/Requirement-specification/Full-UC.pdf)
+- [详述用例](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Requirement-specification/Full-UC.pdf)
 - [领域建模](https://github.com/sysu-badass/Dashboard/raw/master/Documents/Requirement-specification/Domain-Model.png)
 
 ----------
