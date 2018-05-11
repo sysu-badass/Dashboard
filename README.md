@@ -1,19 +1,12 @@
 
-# About Project
+# 目录
 
-Project of Software System Analysis and Design by Maolin Pan, SYSU, 2018.
-
----------- 
-Records of EatOut-Eorder development progress.
-
-## Team & Division
+## 1. Team & Division
 
    - 团队组建：[Team-profile](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Team-profile.md)
 
 
-----------
-
-## Core Artifacts
+## 2. Core Artifacts
 
 - [调研报告](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Investigation-report.md)
 - [项目愿景](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Vision.pdf)
@@ -24,9 +17,9 @@ Records of EatOut-Eorder development progress.
 - [领域建模](https://github.com/sysu-badass/Dashboard/raw/master/Documents/Requirement-specification/Domain-Model.png)
 - [数据库设计](https://github.com/sysu-badass/Dashboard/tree/master/Documents/database_design)
 
-----------
 
-## Iterations
+
+## 3. Iterations
 
 ### Inception
 - [启动会议](https://github.com/sysu-badass/Dashboard/blob/master/Documents/meeting-record/inception-meeting.md)（2018/03/26）
