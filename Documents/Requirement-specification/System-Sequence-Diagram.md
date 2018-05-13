@@ -6,4 +6,9 @@
 
 15331085:
 应用场景：商户首次管理界面
-![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331085.PNG)
+![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331085.PNG)  
+
+15331177:应用场景：点餐  
+![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331177.png)
+
+
