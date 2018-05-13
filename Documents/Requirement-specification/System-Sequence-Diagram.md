@@ -11,4 +11,6 @@
 15331177:应用场景：点餐  
 ![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331177.png)
 
+15331052:-应用场景 ：扫码点餐
 
+![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331052.png)
