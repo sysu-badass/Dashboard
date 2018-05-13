@@ -1,4 +1,4 @@
-# 系统顺序图 
+# 系统顺序图
 -----
 * 每个成员至少编写一个应用场景的系统顺序图（左用户，中间是系统，右边是外部实体对象）
 * 至少一个操作需要写后置条件，用注释符号表示
@@ -6,9 +6,9 @@
 
 15331085:
 应用场景：商户首次管理界面
-![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331085.PNG)  
+![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331085.PNG)
 
-15331177:应用场景：点餐  
+15331177:应用场景：点餐
 ![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331177.png)
 
 15331064:
@@ -18,3 +18,8 @@
 15331052:-应用场景 ：扫码点餐
 
 ![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331052.png)
+
+15331047:
+应用场景：商户修改菜单信息
+
+![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331047.png)
