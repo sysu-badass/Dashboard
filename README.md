@@ -9,7 +9,7 @@
 	- 6.2 [Use Cases (用例+活动图)](https://github.com/sysu-badass/Dashboard/tree/master/Documents/Requirement-specification/Use-cases)
 	- 6.3 [Domian Model (领域模型)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Requirement-specification/Domain-Model.png)
 	- 6.4 State Model (状态模型)
-	- **6.5 System Sequence Diagram (功能模型)**
+	- 6.5 [**System Sequence Diagram (功能模型)**](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Requirement-specification/System-Sequence-Diagram.md)
 7. Design (设计)
 	- 7.1 [UI design](https://github.com/sysu-badass/Dashboard/blob/master/Documents/UI-design.md)
 	- 7.2 [Database design](https://github.com/sysu-badass/Dashboard/tree/master/Documents/database_design)
