@@ -6,4 +6,4 @@
 
 15331085:
 应用场景：商户首次管理界面
-![](../../images/系统顺序图-15331085.png)
+![](https://github.com/sysu-badass/Dashboard/blob/master/images/系统顺序图-15331085.PNG)
