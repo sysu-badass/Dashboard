@@ -14,7 +14,7 @@
 	- 7.1 [UI design](https://github.com/sysu-badass/Dashboard/blob/master/Documents/UI-design.md)
 	- 7.2 [Database design](https://github.com/sysu-badass/Dashboard/tree/master/Documents/database_design)
 	- 7.2.1 [用户及权限系统数据库设计](https://github.com/sysu-badass/Dashboard/blob/master/Documents/database_design/%E6%9D%83%E9%99%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.png)
-		- 7.2.2 [点餐系统数据库设计](https://github.com/sysu-badass/Dashboard/blob/master/Documents/database_design/%E7%82%B9%E9%A4%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.jpg)
+		- 7.2.2 [点餐系统数据库设计](https://github.com/sysu-badass/Dashboard/blob/master/Documents/database_design/%E7%82%B9%E9%A4%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.png)
 		- 7.2.x 第三方数据评审结果 (under construction)
 	- **7.3 API 设计**
 
