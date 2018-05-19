@@ -8,14 +8,14 @@
 - 团队成员清单
 
 
-学号 | 姓名 | 英文名 | 角色
-| - | - | - | -
-15331047|	陈卓艺|	Joey|	开发工程师
-15331052|	程榕|	Rong Cheng|	开发工程师
-15331064|	邓玉婷|	Tango|	产品经理，QA
-15331177|	利建鑫|	Jianxin Li|	Python工程师
-15331085|	高晨|	Tempo|	开发工程师
-15331174|	李舟航|	Robin|	开发工程师
+学号  | 英文名 | 角色
+| - | - | -
+15331047|	Joey|	开发工程师
+15331052|	Rong Cheng|	开发工程师
+15331064|	Tango|	产品经理，QA
+15331177|	Jianxin Li|	Python工程师
+15331085|	Tempo|	开发工程师
+15331174|	Robin|	开发工程师
 
 
 - 具体分工与个人宣言
@@ -23,12 +23,12 @@
 
 姓名|分工内容|个人宣言
 -|-|-
-陈卓艺|	后台开发，需求分析|	badass 扫码订餐系统，你，值得拥有
-程榕|	前端开发，UI设计，竞品分析|	 typing……
-邓玉婷|	需求分析与设计，项目测试|	EOEO多快好省
-利建鑫|	后端开发|	努力做的最好
-高晨| 前端开发，UI设计，数据库设计| Do the right things, do things right
-李舟航|	前端开发，需求分析|	Do something
+Joey|	后台开发，需求分析|	badass 扫码订餐系统，你，值得拥有
+Rong Cheng|	前端开发，UI设计，竞品分析|	 typing……
+Tango|	需求分析与设计，项目测试|	EOEO多快好省
+Jianxin Li|	后端开发|	努力做的最好
+Tempo| 前端开发，UI设计，数据库设计| Do the right things, do things right
+Robin|	前端开发，需求分析|	Do something
 
 ## 沟通渠道建设
 - 即时通讯群，QQ群
