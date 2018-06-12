@@ -1,4 +1,5 @@
 ## REST_API设计规范
+
 [toc]
 
 ### Relationship between URL and HTTP methods
@@ -63,7 +64,7 @@
 
 
 ### PUT 和 POST的区别
-对于一组资源的URI,如"http://example.com/resources/"，PUT方法的作用是使用给定的一组资源替换当前整组资源，而POST方法的作用是在本组资源中创建/追加一个新的资源。该操作往往返回新资源的URL。对于一个特定资源的URI，如"http://example.com/resources/1"，PUT方法的作用是替换/创建指定的资源,并将其追加到相应的资源组中，而POST方法的作用是把指定的资源当做一个资源组，并在其下创建/追加一个新的元素，使其隶属于当前资源。
+对于一组资源的URI,如http://example.com/resources/， PUT方法的作用是使用给定的一组资源替换当前整组资源，而POST方法的作用是在本组资源中创建/追加一个新的资源。该操作往往返回新资源的URL。对于一个特定资源的URI，如http://example.com/resources/1， PUT方法的作用是替换/创建指定的资源,并将其追加到相应的资源组中，而POST方法的作用是把指定的资源当做一个资源组，并在其下创建/追加一个新的元素，使其隶属于当前资源。
 而且PUT方法是幂等性的，POST方法不是，这也是它们最大的区别。
 
 ### Request HTTP方法
