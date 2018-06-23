@@ -17,51 +17,12 @@ restaurant的后台管理的URI
 | /restaurants/{restaurant_id}/orders/{order_id}                | 通过order自身的id来查看订单数据                       | GET, PUT, DELETE |
 
 user的信息管理URI，考虑到我们的用户仅仅需要查看订单，修改购物车以及支付，所以很多操作都只需要GET HTTP方法就可以了。支付方式暂时只支持微信支付。而且是扫码点餐，是在实体餐厅中扫码，所以所有的订单记录资源都可以作为当前餐厅的子资源。
-| URI                                                     | 说明                                       | HTTP方法  |
-| ------------------------------------------------------- | ------------------------------------------ | --------- |
-| /users/{user_id}/{restaurant_id}/orders                                 | 顾客在当前餐厅的订单记录，包括待处理的与之前的历史   | GET       |
-| /users/{user_id}/{restaurant_id}/orders/?limimt={}                      | 顾客的订单记录查看数量收到limit限制        | GET       |
-| /users/{user_id}/{restaurant_id}shoppingcart/           | 顾客在当前餐厅的购物车，由餐厅的id进行限制 | GET       |
+| URI                                                     | 说明                                               | HTTP方法  |
+| ------------------------------------------------------- | -------------------------------------------------- | --------- |
+| /users/{user_id}/{restaurant_id}/orders                 | 顾客在当前餐厅的订单记录，包括待处理的与之前的历史 | GET       |
+| /users/{user_id}/{restaurant_id}/orders/?limimt={}      | 顾客的订单记录查看数量收到limit限制                | GET       |
+| /users/{user_id}/{restaurant_id}shoppingcart/           | 顾客在当前餐厅的购物车，由餐厅的id进行限制         | GET       |
 | /users/{user_id}/{restaurant_id}/shoppingcart/{food_id} | 顾客在当前餐厅购物车中查看具体的菜品信息           | GET       |
-| /users/{user_id}/{restaurant_id}/payment                              | 顾客选择支付方式                           | GET, POST |
-
-### 各种对象大概的数据结构
-由于food和order都是restraurants URI的子资源，所以不需要restaurant_id去检索。
-```
-food {
-  int restaurant_id
-  int food_id;
-  string food_name;
-  string food_image_location; #例如URL
-  int food_price;
-}
-```
-
-```
-date {
-  int order_id;
-  int year;
-  int month;
-  int day;
-  int hour;
-  int minute;
-}
-
-order {
-  int order_id;  #order自身的id
-  int user_id; #下单顾客的id
-  int restaurant_id;  #餐厅的id
-  #这三个id方便数据库进行检索
-  food foods[]; #点餐的food数组
-  date order_date;
-  int desk_number;
-  int price;
-}
-```
-
-```
-payment {
-  int payment_id; #选择支付方式用id进行表示。
-  int user_id;
-}
-```
+| /users/{user_id}/{restaurant_id}/payment                | 顾客选择支付方式                                   | GET, POST |
+| /users/{user_id}/{restaurant_id}/menu                   | 餐厅的菜单                                         | GET       |
+| /users/login                                                        | 用于扫码登录                                                   | POST          |
