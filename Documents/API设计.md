@@ -49,7 +49,7 @@ This section groups users resources.
 
 ## Users Login [/users/login]
 
-### Post the user information [POST]
+### 客户端向服务端发送登录信息 [POST]
 In the URL there should be a QR code and user can login with it.
 
 + Request (application/json)
@@ -73,7 +73,7 @@ In the URL there should be a QR code and user can login with it.
 
 ## Restaurant Menu [/users/{user_id}/{restaurant_id}/menu]
 
-### GET [GET]
+### 获得客户端餐厅菜单界面的信息 [GET]
 In this URL, the client can can the food infomation json
 
 + Response 200
@@ -105,7 +105,7 @@ In this URL, the client can can the food infomation json
           ]
         }
 
-### Get the history of orders [GET]
+### 客户度获得在当前餐厅订单列表信息 [GET]
 
 + Response 200
 
@@ -135,7 +135,7 @@ In this URL, the client can can the food infomation json
           ]
         }
 
-### Get the order information [GET]
+### 客户端获得当前订单具体信息 [GET]
 
 + Response 200
 
@@ -150,7 +150,7 @@ In this URL, the client can can the food infomation json
     + order_id: 1 (int) - 查看的订单的ID
     + food_id: 1 (int) - 查看的订单里的菜品的ID
 
-### Get the food information in the order [GET]
+### 客户端获得当前订单中某菜品的具体信息 [GET]
 
 + Response 200 (application/json)
 
@@ -168,7 +168,7 @@ This section groups restaurants resources.
 
 The restaurant administrator login website.
 
-### Post the restaurant administrator account information [POST]
+### 发送服务端管理账号登录信息 [POST]
 
 + Request (application/json)
 
@@ -190,7 +190,7 @@ The restaurant administrator login website.
 
 ## Restaurants Join [/restaurants/join]
 
-### Post the restaurant administrator account information [POST]
+### 发送服务端管理账号注册信息 [POST]
 
 + Request (application/json)
 
@@ -213,13 +213,13 @@ The restaurant administrator login website.
 ## Restaurant Menu [/restaurants/{restaurant_id}/menu]
 展示餐单的菜品列表，同时可以批量删除其中的菜品。
 
-### Get the restaurant food list [GET]
+### 服务端获得当前餐厅的菜单信息 [GET]
 
 + Response 200
 
     [Restaurants Food][]
 
-### Post food entry to the restaurant food list [POST]
+### 服务端发送修改当前菜单的请求 [POST]
 
 + Request
 
@@ -233,7 +233,7 @@ The restaurant administrator login website.
               "URL": "/restaurants/{restaurant_id}/menu/{food_id}"
             }
 
-### Delete food entry from the restaurant list [DELETE]
+### 服务端发送批量删除菜单中菜品的请求 [DELETE]
 
 + Request
 
@@ -263,13 +263,13 @@ The restaurant administrator login website.
               ]
             }
 
-### Get the restaurant food information [GET]
+### 服务端获得当前餐厅菜单中特定菜品的信息 [GET]
 
 + Response 200
 
     [Restaurants Food][]
 
-### Post the new food entry [POST]
+### 服务端发送修改当前餐厅菜单中特定菜品的信息的请求 [PUT]
 
 修改菜品的信息
 
@@ -285,7 +285,7 @@ The restaurant administrator login website.
               "URL": "/restaurants/{restaurant_id}/menu/{food_id}"
             }
 
-### Delete food entry [DELETE]
+### 服务端发送删除当前餐厅菜单中特定菜品的信息的请求 [DELETE]
 
 + Response 200 (application/json)
 
@@ -298,13 +298,13 @@ The restaurant administrator login website.
 ## Restaurants Orders List [/restaurants/{restaurant_id}/orders]
 查看，编辑订单状态
 
-### Get the restaurant orders list [GET]
+### 服务端获得当前餐厅所有订单的列表 [GET]
 
 + Response 200
 
     [Restaurants Order][]
 
-### Post order entry to the restaurant orders list [POST]
+### 服务端发送在当前餐厅订单的列表创建订单的请求 [POST]
 
 + Request
 
@@ -318,7 +318,7 @@ The restaurant administrator login website.
               "URL": "/restaurants/{restaurant_id}/orders/{order_id}"
             }
 
-### Delete order entry from the restaurant orders lit [DELETE]
+### 服务端发送删除在当前餐厅的订单列表中特定订单的请求 [DELETE]
 
 + Request
 
@@ -351,13 +351,13 @@ The restaurant administrator login website.
     + restaurant_id: 9527 (int) - 餐厅的ID
     + order_id: 1 (int) - 订单的ID
 
-### Get the restaurant order information [GET]
+### 服务端获得在当前餐厅特定订单信息 [GET]
 
 + Response 200
 
     [Restaurants Order][]
 
-### Put the new order entry [PUT]
+### 服务端发送修改当前餐厅特定订单信息的请求 [PUT]
 
 + Request
 
@@ -371,7 +371,7 @@ The restaurant administrator login website.
               "URL": "/restaurants/{restaurant_id}/orders/{order_id}"
             }
 
-### Delete order entry [DELETE]
+### 服务端发送删除当前餐厅特定订单信息的请求 [DELETE]
 
 + Response 204
 
@@ -383,7 +383,7 @@ The restaurant administrator login website.
     + order_id: 1 (int) - 订单的ID
     + food_id: 1 (int) - 订单里菜品的ID
 
-### Get the food information [GET]
+### 服务端获得当前餐厅特定订单中特定菜品的信息 [GET]
 
 + Response 200 (application/json)
 
