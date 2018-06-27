@@ -18,7 +18,7 @@ restaurant的后台管理的URI
 | /restaurants/{restaurant_id}/orders/{order_id}                | 通过order自身的id来查看订单数据                           | GET, PUT, DELETE |
 | /restaurants/{restaurant_id}/orders/{order_id}/{food_id}      | 餐厅管理员查看订单里的菜品的信息，重定向到/menu/{food_id} | GET              |
 
-user的信息管理URI，考虑到我们的用户仅仅需要查看订单，修改购物车以及支付，所以很多操作都只需要GET HTTP方法就可以了。支付方式暂时只支持微信支付。而且是扫码点餐，是在实体餐厅中扫码，所以所有的订单记录资源都可以作为当前餐厅的子资源。
+user的信息管理URI，考虑到我们的用户仅仅需要查看订单，修改购物车以及支付，所以很多操作都只需要GET HTTP方法就可以了。支付方式暂时只支持微信支付。而且是扫码点餐，是在实体餐厅中扫码，所以所有的订单记录资源都可以作为当前餐厅的子资源。同时由于暂时不是很清楚微信小程序的工作原理，所以暂定顾客user的账号是其手机号码，密码是手机号码通过passlib库中的passlib.hash中的pbkdf2_sha256.hash('手机号码')来生成密码。(注：hash()函数需要unicode类型作为传入参数)
 
 | URI                                                          | 说明                                                | HTTP方法 |
 | ------------------------------------------------------------ | --------------------------------------------------- | -------- |
@@ -26,11 +26,10 @@ user的信息管理URI，考虑到我们的用户仅仅需要查看订单，修�
 | /users/{user_id}/{restaurant_id}/orders/{order_id}           | 顾客查看具体订单的信息，包括未完成的订单的信息      | GET      |
 | /users/{user_id}/{restaurant_id}/orders/{order_id}/{food_id} | 顾客查看订单里的菜品的信息，重定向到/menu/{food_id} | GET      |
 | /users/{user_id}/{restaurant_id}/orders?limimt={}            | 顾客的订单记录查看数量受到limit限制                 | GET      |
-| /users/{user_id}/{restaurant_id}/payment                     | 顾客选择支付方式                                    | GET, POST      |
+| /users/{user_id}/{restaurant_id}/payment                     | 顾客选择支付方式                                    | POST      |
 | /users/{user_id}/{restaurant_id}/menu                        | 餐厅的菜单                                          | GET      |
 | /users/{user_id}/{restaurant_id}/menu/{food_id}              | 顾客查看菜单里菜品的信息                            | GET      |
 | /users/login                                                 | 用于扫码登录                                        | POST     |
-
 
 ### 具体的接口设计
 以下是我们项目在**apiary**上的文档源文件
@@ -72,6 +71,11 @@ In the URL there should be a QR code and user can login with it.
 
 
 ## Restaurant Menu [/users/{user_id}/{restaurant_id}/menu]
+
++ Parameters
+
+    + user_id: 123 (int) - 用户的ID
+    + restaurant_id: 9527 (int) - 餐厅的ID
 
 ### 获得客户端餐厅菜单界面的信息 [GET]
 In this URL, the client can can the food infomation json
@@ -152,13 +156,9 @@ In this URL, the client can can the food infomation json
 
 ### 客户端获得当前订单中某菜品的具体信息 [GET]
 
-+ Response 200 (application/json)
++ Response 200
 
-    + Body
-
-            {
-              "URL": "/restaruants/{restaurant_id}/menu/{food_id}"
-            }
+    [Restaurant Food][]
 
 # Group Restaruants
 
@@ -166,7 +166,7 @@ This section groups restaurants resources.
 
 ## Restaurants Login [/restaurants/login]
 
-The restaurant administrator login website.
+The restaurant administrator login website. Because the database didn't need the information of the administrator to handle the order data and the menu data, I prefer just use the restaurant id to represent the URLs of the restaurant management website.
 
 ### 发送服务端管理账号登录信息 [POST]
 
@@ -175,8 +175,9 @@ The restaurant administrator login website.
     + Body
 
             {
-              "restaurant_id": 9527,
-              "restaurant_password": 1234
+              "restaurant_admin_id": 123,
+              "restaurant_admin_password": 1234,
+              "restaurant_id": 9527
             }
 
 + Response 200 (application/json)
@@ -198,7 +199,8 @@ The restaurant administrator login website.
 
             {
               "restaurant_id": 9527,
-              "restaurant_password": 1234
+              "restaurant_admin_id": 123,
+              "restaurant_admin_password": 1234,
               "restaurant_name": "Eorder",
               "restaurant_information": "小吃店"
             }
@@ -212,6 +214,10 @@ The restaurant administrator login website.
 
 ## Restaurant Menu [/restaurants/{restaurant_id}/menu]
 展示餐单的菜品列表，同时可以批量删除其中的菜品。
+
++ Parameters
+
+    + restaurant_id: 234 (int) - 餐厅的ID
 
 ### 服务端获得当前餐厅的菜单信息 [GET]
 
@@ -243,6 +249,11 @@ The restaurant administrator login website.
 
 ## Restaurants Food [/restaurants/{restaurant_id}/menu/{food_id}]
 查看，编辑，删减菜品的信息。
+
++ Parameters
+
+    + restaurant_id: 234 (int) - 餐厅的ID
+    + food_id: 1 (int) - 查看的订单里的菜品的ID
 
 + Model (application/json)
 返回food类型的数组
@@ -298,13 +309,36 @@ The restaurant administrator login website.
 ## Restaurants Orders List [/restaurants/{restaurant_id}/orders]
 查看，编辑订单状态
 
++ Parameters
+
+    + restaurant_id: 234 (int) - 餐厅的ID
+
++ Model (application/json)
+
+    + Body
+
+            {
+              [
+                {
+                  'order_id': 123,
+                  'date': '2018.6.18',
+                  'desk_number': 2,
+                  'total_price': 123.4,
+                  'restaurant_id': 9527
+                }
+              ]
+            }
+
+
+
 ### 服务端获得当前餐厅所有订单的列表 [GET]
 
 + Response 200
 
-    [Restaurants Order][]
+    [Restaurants Orders List][]
 
 ### 服务端发送在当前餐厅订单的列表创建订单的请求 [POST]
+将详细的订单的信息发送到服务端
 
 + Request
 
@@ -322,11 +356,16 @@ The restaurant administrator login website.
 
 + Request
 
-    [Restaurants Order][]
+    [Restaurants Orders List][]
 
 + Response 204
 
 ## Restaurants Order [/restaurants/{restaurant_id}/orders/{order_id}]
+
++ Parameters
+
+    + restaurant_id: 234 (int) - 餐厅的ID
+    + order_id: 1 (int) - 查看的订单的ID
 
 + Model (application/json)
 
@@ -335,7 +374,7 @@ The restaurant administrator login website.
             {
               [
                 {
-                  "food_id": 1,
+                  "order_item_id": 1,
                   "order_id": 2,
                   "number" : 2,
                   "name": "豆腐",
@@ -345,11 +384,6 @@ The restaurant administrator login website.
                 }
               ]
             }
-
-+ Parameters
-
-    + restaurant_id: 9527 (int) - 餐厅的ID
-    + order_id: 1 (int) - 订单的ID
 
 ### 服务端获得在当前餐厅特定订单信息 [GET]
 
