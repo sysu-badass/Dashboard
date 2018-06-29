@@ -26,7 +26,7 @@ user的信息管理URI，考虑到我们的用户仅仅需要查看订单，修�
 | /users/{user_id}/{restaurant_id}/orders/{order_id}           | 顾客查看具体订单的信息，包括未完成的订单的信息      | GET      |
 | /users/{user_id}/{restaurant_id}/orders/{order_id}/{food_id} | 顾客查看订单里的菜品的信息，重定向到/menu/{food_id} | GET      |
 | /users/{user_id}/{restaurant_id}/orders?limimt={}            | 顾客的订单记录查看数量受到limit限制                 | GET      |
-| /users/{user_id}/{restaurant_id}/payment                     | 顾客选择支付方式                                    | POST      |
+| /users/{user_id}/{restaurant_id}/payment                     | 顾客选择支付方式，下订单后同时向服务端发送订单信息                                    | GET, POST      |
 | /users/{user_id}/{restaurant_id}/menu                        | 餐厅的菜单                                          | GET      |
 | /users/{user_id}/{restaurant_id}/menu/{food_id}              | 顾客查看菜单里菜品的信息                            | GET      |
 | /users/login                                                 | 用于扫码登录                                        | POST     |
@@ -57,6 +57,7 @@ In the URL there should be a QR code and user can login with it.
 
             {
               "user_id": "3062",
+              "username": 'Jcak',
               "user_password": "123456",
               "restaurant_id": "9527"
             }
@@ -67,6 +68,14 @@ In the URL there should be a QR code and user can login with it.
 
             {
               "URL": "/users/{user_id}/{restaurant_id}/menu"
+            }
+
++ Response 400 (application/json)
+
+    + Body
+
+            {
+              "message": "login error"
             }
 
 
@@ -84,6 +93,27 @@ In this URL, the client can can the food infomation json
 
     [Restaurants Food][]
 
+## Restaurant Menu Food Information [/users/{user_id}/{restaurant_id}/menu/{food_id}]
+
++ Parameters
+
+    + user_id: 123 (int) - 用户的ID
+    + restaurant_id: 9527 (int) - 餐厅的ID
+    + food_id: 1 (int) - 查看的菜单里的菜品的ID
+
+### 获得客户端餐厅菜单界面的菜品的信息 [GET]
+
++ Response 200
+
+    [Restaurants Food][]
+
++ Response 400 (application/json)
+
+    + Body
+
+            {
+              "message": "No such food exists in this menu"
+            }
 
 ## Orders List [/users/{user_id}/{restaurant_id}/orders]
 
@@ -97,6 +127,7 @@ In this URL, the client can can the food infomation json
 + Model (application/json)
 
         {
+          "orders":
           [
             {
               "order_history_id": 1,
@@ -126,6 +157,7 @@ In this URL, the client can can the food infomation json
 + Model (application/json)
 
         {
+          "order_items":
           [
             {
               "order_history_item_id": 1,
@@ -145,6 +177,14 @@ In this URL, the client can can the food infomation json
 
     [Order][]
 
++ Response 400 (application/json)
+
+    + Body
+
+            {
+              "message": "No such order exists"
+            }
+
 ## Food Information of Order [/users/{user_id}/{restaurant_id}/orders/{order_id}/{food_id}]
 
 + Parameters
@@ -158,7 +198,66 @@ In this URL, the client can can the food infomation json
 
 + Response 200
 
-    [Restaurant Food][]
+    [Restaurants Food][]
+
++ Response 400 (application/json)
+
+    + Body
+
+            {
+              "message": "No such food exists in this order"
+            }
+
+## Payment [/users/{user_id}/{restaurant_id}/payment]
+
++ Parameters
+
+    + user_id: 123 (int) - 用户的ID
+    + restaurant_id: 234 (int) - 餐厅的ID
+
+### 客户端获得支付的选项的网页 [GET]
+
++ Response 200
+
+    + Body
+
+            {
+              "URL": ["example.com"]
+            }
+
+### 客户端支付成功后向服务端发送订单信息 [POST]
+
++ Request (applicaton/json)
+
+    + Body
+
+            {
+              "orders":
+              [
+                {
+                  "order_history_id": 1,
+                  "date": "2018.6.18",
+                  "desk_number": 2,
+                  "total_price": 121,
+                  "restaurant_id": 9527,
+                  "user_id": 3062
+                }
+              ],
+              "order_items":
+              [
+                {
+                  "order_history_item_id": 1,
+                  "number": 2,
+                  "name": "doufu",
+                  "description": "delicious",
+                  "image": "/image/doufu.png",
+                  "price": 12,
+                  "order_history_id": 34
+                }
+              ]
+            }
+
++ Response 204
 
 # Group Restaruants
 
@@ -188,6 +287,14 @@ The restaurant administrator login website. Because the database didn't need the
               "URL": "/restaurants/{restaurant_id}/menu"
             }
 
++ Response 400 (application/json)
+
+    + Body
+
+            {
+              "message": "Login error"
+            }
+
 
 ## Restaurants Join [/restaurants/join]
 
@@ -204,12 +311,21 @@ The restaurant administrator login website. Because the database didn't need the
               "restaurant_name": "Eorder",
               "restaurant_information": "小吃店"
             }
+
 + Response 200 (application/json)
 
     + Body
 
             {
-              "URL": "/restaurants/{restaurant_id}/"
+              "URL": "/restaurants/{restaurant_id}/menu"
+            }
+
++ Response 400 (application/json)
+
+    + Body
+
+            {
+              "message": "This administrator already exists"
             }
 
 ## Restaurant Menu [/restaurants/{restaurant_id}/menu]
@@ -221,12 +337,20 @@ The restaurant administrator login website. Because the database didn't need the
 
 ### 服务端获得当前餐厅的菜单信息 [GET]
 
++ Request (application/json)
+
+    + Body
+
+            {
+              "restaurant_id": 9527
+            }
+
 + Response 200
 
     [Restaurants Food][]
 
 ### 服务端发送修改当前菜单的请求 [POST]
-
+一次可以提交多个food对象
 + Request
 
     [Restaurants Food][]
@@ -240,12 +364,20 @@ The restaurant administrator login website. Because the database didn't need the
             }
 
 ### 服务端发送批量删除菜单中菜品的请求 [DELETE]
-
+每次只能删除一个food对象
 + Request
 
     [Restaurants Food][]
 
 + Response 204
+
++ Response 400 (application/json)
+
+    + Body
+
+        {
+          "message": "The food is not in the menu"
+        }
 
 ## Restaurants Food [/restaurants/{restaurant_id}/menu/{food_id}]
 查看，编辑，删减菜品的信息。
@@ -260,6 +392,7 @@ The restaurant administrator login website. Because the database didn't need the
     + Body
 
             {
+              "foods":
               [
                 {
                   "food_id": 1,
@@ -318,6 +451,7 @@ The restaurant administrator login website. Because the database didn't need the
     + Body
 
             {
+              "orders":
               [
                 {
                   'order_id': 123,
@@ -337,12 +471,45 @@ The restaurant administrator login website. Because the database didn't need the
 
     [Restaurants Orders List][]
 
++ Response 400 (applicaton/json)
+
+    + Body
+
+            {
+              "message": "No such order {order_id} exists"
+            }
+
 ### 服务端发送在当前餐厅订单的列表创建订单的请求 [POST]
-将详细的订单的信息发送到服务端
+将详细的订单的信息发送到服务端，一次可以创建一个order类，每次订单包含其中的order_item类
 
-+ Request
++ Request (applicaton/json)
 
-    [Restaurants Order][]
+    + Body
+
+            {
+              "orders":
+              [
+                {
+                  'order_id': 123,
+                  'date': '2018.6.18',
+                  'desk_number': 2,
+                  'total_price': 123.4,
+                  'restaurant_id': 9527
+                }
+              ],
+              "order_items":
+              [
+                {
+                  "order_item_id": 1,
+                  "order_id": 2,
+                  "number" : 2,
+                  "name": "豆腐",
+                  “price”: 10,
+                  "description": "美味",
+                  "image": "/image/doufu.png"
+                }
+              ]
+            }
 
 + Response 200 (application/json)
 
@@ -353,7 +520,7 @@ The restaurant administrator login website. Because the database didn't need the
             }
 
 ### 服务端发送删除在当前餐厅的订单列表中特定订单的请求 [DELETE]
-
+一次只能删除一个订单
 + Request
 
     [Restaurants Orders List][]
@@ -372,6 +539,7 @@ The restaurant administrator login website. Because the database didn't need the
     + Body
 
             {
+              "order_items":
               [
                 {
                   "order_item_id": 1,
@@ -392,7 +560,7 @@ The restaurant administrator login website. Because the database didn't need the
     [Restaurants Order][]
 
 ### 服务端发送修改当前餐厅特定订单信息的请求 [PUT]
-
+可以添加多个order_item类
 + Request
 
     [Restaurants Order][]
@@ -408,6 +576,14 @@ The restaurant administrator login website. Because the database didn't need the
 ### 服务端发送删除当前餐厅特定订单信息的请求 [DELETE]
 
 + Response 204
+
++ Response 400 (applicaton/json)
+
+    + Body
+
+            {
+              "message": "The order item is not in the order"
+            }
 
 ## Restaurant Food Information in an Order [/restaurants/{restaurant_id}/orders/{order_id}/{food_id}]
 
