@@ -22,6 +22,21 @@
 	- 8.1 [python代码规范](https://github.com/sysu-badass/Dashboard/blob/master/Documents/%E7%94%9F%E4%BA%A7%E8%A7%84%E8%8C%83%E4%B8%8E%E6%8C%87%E5%8D%97/python%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83.md)
 	- 8.2 [REST API 设计规范](https://github.com/sysu-badass/Dashboard/blob/master/Documents/%E7%94%9F%E4%BA%A7%E8%A7%84%E8%8C%83%E4%B8%8E%E6%8C%87%E5%8D%97/REST_API%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.md)
 
+9. demo运行效果
+	- 商户PC端
+		- [登录注册](http://pb1ftb8nx.bkt.clouddn.com/%E7%99%BB%E5%BD%951.gif)
+		- [登录](http://pb1ftb8nx.bkt.clouddn.com/%E7%99%BB%E5%BD%95%E8%BF%9B.gif)
+	  	- [不同功能](http://pb1ftb8nx.bkt.clouddn.com/%E5%90%84%E7%A7%8D%E8%B7%B3%E8%BD%AC.gif)
+	 	- [修改商家信息](http://pb1ftb8nx.bkt.clouddn.com/%E4%BF%AE%E6%94%B9info.gif)
+		- [订单管理](http://pb1ftb8nx.bkt.clouddn.com/%E8%AE%A2%E5%8D%95%E7%AE%A1%E7%90%86.gif)
+		- [菜品管理](http://pb1ftb8nx.bkt.clouddn.com/%E8%8F%9C%E5%93%81%E7%AE%A1%E7%90%861.gif)
+		- [添加菜品](http://pb1ftb8nx.bkt.clouddn.com/%E6%B7%BB%E5%8A%A0%E8%8F%9C%E5%93%81.gif)
+	- 顾客小程序端
+		- [查看餐品详细信息](https://github.com/sysu-badass/wechat-end-web-page/raw/master/performance/perform3.gif)
+		- [添加餐品到购物车](https://github.com/sysu-badass/wechat-end-web-page/raw/master/performance/perform1.gif)
+	  	- [查看个人信息以及历史订单](https://github.com/sysu-badass/wechat-end-web-page/raw/master/performance/perform2.gif)
+		
+		
 X1 [meet_recording](https://github.com/sysu-badass/Dashboard/tree/master/Documents/meeting-record)
   - [inception meeting (2018/03/26)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/meeting-record/inception-meeting.md)
   - [iteration1 meeting(2018/04/14)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/meeting-record/iteration1-meeting.md)
