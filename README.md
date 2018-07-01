@@ -10,6 +10,7 @@
 	- 6.3 [Domian Model (领域模型)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Requirement-specification/Domain-Model.png)
 	- 6.4 [State Model (状态模型)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Requirement-specification/State-Model/State-Model.md)
 	- 6.5 [System Sequence Diagram (功能模型)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Requirement-specification/System-Sequence-Diagram.md)
+	- 6.6 补充需求
 7. Design (设计)
 	- 7.1 [UI design](https://github.com/sysu-badass/Dashboard/blob/master/Documents/UI-design.md)
 	- 7.2 [Database design](https://github.com/sysu-badass/Dashboard/tree/master/Documents/database_design)
@@ -17,10 +18,14 @@
 		- 7.2.2 [点餐系统数据库设计](https://github.com/sysu-badass/Dashboard/blob/master/Documents/database_design/%E7%82%B9%E9%A4%90%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1.png)
 		- 7.2.x 第三方数据评审结果 (under construction)
 	- 7.3 [API 设计](https://github.com/sysu-badass/Dashboard/blob/master/Documents/API%E8%AE%BE%E8%AE%A1.md)
+	- 7.4 [Software Architecture Document](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Requirement-specification/Software-Architecture-Document.md)
+	- 7.5 Usecase design
 
 8. [生产规范与指南](https://github.com/sysu-badass/Dashboard/tree/master/Documents/%E7%94%9F%E4%BA%A7%E8%A7%84%E8%8C%83%E4%B8%8E%E6%8C%87%E5%8D%97)
 	- 8.1 [python代码规范](https://github.com/sysu-badass/Dashboard/blob/master/Documents/%E7%94%9F%E4%BA%A7%E8%A7%84%E8%8C%83%E4%B8%8E%E6%8C%87%E5%8D%97/python%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83.md)
 	- 8.2 [REST API 设计规范](https://github.com/sysu-badass/Dashboard/blob/master/Documents/%E7%94%9F%E4%BA%A7%E8%A7%84%E8%8C%83%E4%B8%8E%E6%8C%87%E5%8D%97/REST_API%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.md)
+	- 8.3 [框架目录设计与逻辑架构与 ECB 的关系](https://github.com/sysu-badass/Dashboard/blob/master/Documents/ECB.md)
+	- 8.4 物理架构云上部署 dock-compose.yml 文件编写与使用
 
 X1 [meet_recording](https://github.com/sysu-badass/Dashboard/tree/master/Documents/meeting-record)
   - [inception meeting (2018/03/26)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/meeting-record/inception-meeting.md)
@@ -33,3 +38,6 @@ X2 Tech/Work Report
   - [15331085 - QRCode Learning](https://8652.github.io/QR-Code/)
   - [15331047 - python3 decorator](https://saltyfish123.github.io/15331047_homework_3/)
   - [15331064 - 使用git上传文件至项目仓库](https://blog.csdn.net/qq_33361432/article/details/79919040)
+
+X3 Final Report
+  - [15331047-FinalReport](https://saltyfish123.github.io/15331047_final_report/)
