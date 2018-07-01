@@ -26,10 +26,10 @@
 	- 商户PC端
 		- [登录注册](http://pb1ftb8nx.bkt.clouddn.com/%E7%99%BB%E5%BD%951.gif)
 		- [登录](http://pb1ftb8nx.bkt.clouddn.com/%E7%99%BB%E5%BD%95%E8%BF%9B.gif)
-	  	- [不同功能](http://pb1ftb8nx.bkt.clouddn.com/%E5%90%84%E7%A7%8D%E8%B7%B3%E8%BD%AC.gif)
+		- [不同面板](http://pb1ftb8nx.bkt.clouddn.com/%E5%90%84%E7%A7%8D%E8%B7%B3%E8%BD%AC.gif)
 		- [修改商家信息](http://pb1ftb8nx.bkt.clouddn.com/%E4%BF%AE%E6%94%B9info.gif)
 		- [订单管理](http://pb1ftb8nx.bkt.clouddn.com/%E8%AE%A2%E5%8D%95%E7%AE%A1%E7%90%86.gif)
-		- [菜品管理](http://pb1ftb8nx.bkt.clouddn.com/%E8%8F%9C%E5%93%81%E7%AE%A1%E7%90%861.gif)
+		- [菜单界面](http://pb1ftb8nx.bkt.clouddn.com/%E8%8F%9C%E5%93%81%E7%AE%A1%E7%90%861.gif)
 		- [添加菜品](http://pb1ftb8nx.bkt.clouddn.com/%E6%B7%BB%E5%8A%A0%E8%8F%9C%E5%93%81.gif)
 	- 顾客小程序端
 		- [查看餐品详细信息](https://github.com/sysu-badass/wechat-end-web-page/raw/master/performance/perform3.gif)
