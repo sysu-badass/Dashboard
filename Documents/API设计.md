@@ -54,16 +54,24 @@ In the URL there should be a QR code and user can login with it.
 
 + Request (application/json)
 
+    + Headers
+
+            Cookie: id=1
+
     + Body
 
             {
               "user_id": "3062",
-              "username": 'Jcak',
+              "username": "Jcak",
               "user_password": "123456",
               "restaurant_id": 9527
             }
 
 + Response 200 (application/json)
+
+    + Headers
+
+            Set-Cookie: id=1
 
     + Body
 
@@ -165,7 +173,7 @@ In this URL, the client can can the food infomation json
               "number": 2,
               "name": "doufu",
               "description": "delicious",
-              "image": "/image/doufu.png",
+              "image": "https://tse4-mm.cn.bing.net/th?id=OIP.0J7pU00aZiR-lzb_l-uCnQHaG_&pid=Api",
               "price": 12,
               "order_history_id": 34
             }
@@ -241,7 +249,7 @@ In this URL, the client can can the food infomation json
                   "number": 2,
                   "name": "豆腐",
                   "description": "delicious",
-                  "image": "/image/doufu.png",
+                  "image": "https://tse4-mm.cn.bing.net/th?id=OIP.0J7pU00aZiR-lzb_l-uCnQHaG_&pid=Api",
                   "price": 12,
                 }
               ]
@@ -260,6 +268,10 @@ The restaurant administrator login website. Because the database didn't need the
 ### 发送服务端管理账号登录信息 [POST]
 
 + Request (application/json)
+
+    + Headers
+
+            Cookie: id=1
 
     + Body
 
@@ -291,6 +303,10 @@ The restaurant administrator login website. Because the database didn't need the
 ### 发送服务端管理账号注册信息 [POST]
 
 + Request (application/json)
+
+    + Headers
+
+            Cookie: id=1
 
     + Body
 
@@ -353,7 +369,7 @@ The restaurant administrator login website. Because the database didn't need the
                   "price": 10,
                   "food_type": "素食",
                   "description": "美味",
-                  "image": "/image/doufu.png",
+                  "image": "https://tse4-mm.cn.bing.net/th?id=OIP.0J7pU00aZiR-lzb_l-uCnQHaG_&pid=Api",
                   "available": "True",
                   "restaurant_id": 9527
                 }
@@ -382,7 +398,7 @@ The restaurant administrator login website. Because the database didn't need the
                   "price": 10,
                   "food_type": "素食",
                   "description": "美味",
-                  "image": "/image/doufu.png",
+                  "image": "https://tse4-mm.cn.bing.net/th?id=OIP.0J7pU00aZiR-lzb_l-uCnQHaG_&pid=Api",
                   "available": "True",
                   "restaurant_id": 9527
                 }
@@ -395,9 +411,9 @@ The restaurant administrator login website. Because the database didn't need the
 
     + Body
 
-        {
-          "message": "The food is not in the menu"
-        }
+            {
+              "message": "The food is not in the menu"
+            }
 
 ## Restaurants Food [/restaurants/{restaurant_id}/menu/{food_id}]
 查看，编辑，删减菜品的信息。
@@ -420,7 +436,7 @@ The restaurant administrator login website. Because the database didn't need the
                   "price": 10,
                   "food_type": "素食",
                   "description": "美味",
-                  "image": "/image/doufu.png",
+                  "image": "https://tse4-mm.cn.bing.net/th?id=OIP.0J7pU00aZiR-lzb_l-uCnQHaG_&pid=Api",
                   "available": "True",
                   "restaurant_id": 9527
                 }
@@ -449,7 +465,7 @@ The restaurant administrator login website. Because the database didn't need the
                   "price": 10,
                   "food_type": "素食",
                   "description": "美味",
-                  "image": "/image/doufu.png",
+                  "image": "https://tse4-mm.cn.bing.net/th?id=OIP.0J7pU00aZiR-lzb_l-uCnQHaG_&pid=Api",
                   "available": "True",
                   "restaurant_id": 9527
                 }
@@ -529,7 +545,7 @@ The restaurant administrator login website. Because the database didn't need the
                   "name": "豆腐",
                   "price": 10,
                   "description": "美味",
-                  "image": "/image/doufu.png"
+                  "image": "https://tse4-mm.cn.bing.net/th?id=OIP.0J7pU00aZiR-lzb_l-uCnQHaG_&pid=Api"
                 }
               ]
             }
@@ -576,7 +592,7 @@ The restaurant administrator login website. Because the database didn't need the
                   "name": "豆腐",
                   "price": 10,
                   "description": "美味",
-                  "image": "/image/doufu.png"
+                  "image": "https://tse4-mm.cn.bing.net/th?id=OIP.0J7pU00aZiR-lzb_l-uCnQHaG_&pid=Api"
                 }
               ]
             }
@@ -601,7 +617,7 @@ The restaurant administrator login website. Because the database didn't need the
                   "name": "豆腐",
                   "price": 10,
                   "description": "美味",
-                  "image": "/image/doufu.png"
+                  "image": "https://tse4-mm.cn.bing.net/th?id=OIP.0J7pU00aZiR-lzb_l-uCnQHaG_&pid=Api"
                 }
               ]
             }
