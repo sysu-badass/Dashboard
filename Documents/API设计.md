@@ -7,16 +7,17 @@
 
 restaurant的后台管理的URI
 
-| URI                                                           | 说明                                                      | HTTP方法         |
-| ------------------------------------------------------------- | --------------------------------------------------------- | ---------------- |
-| /restaurants/login                                            | 餐厅管理后台账号登录                                      | POST             |
-| /restaurants/join                                             | 餐厅管理后台账号创建                                      | POST             |
-| /restaurants/{restaurant_id}/menu                             | 餐厅的餐单资料                                            | GET, POST, DELETE        |
-| /restaurants/{restaurant_id}/menu/{food_id}                   | 菜品的具体信息                                            | GET, PUT, DELETE |
-| /restaurants/{restaurant_id}/orders                           | 餐厅的订单列表，包含待处理的和已处理的                    | GET, POST        |
-| /restaurants/{restaurant_id}/orders?date={}&user={}&status={} | 通过订单的日期，下单user_id以及完成状态status进行检索     | GET              |
-| /restaurants/{restaurant_id}/orders/{order_id}                | 通过order自身的id来查看订单数据                           | GET, PUT, DELETE |
-| /restaurants/{restaurant_id}/orders/{order_id}/{food_id}      | 餐厅管理员查看订单里的菜品的信息，重定向到/menu/{food_id} | GET              |
+| URI                                                           | 说明                                                      | HTTP方法          |
+| ------------------------------------------------------------- | --------------------------------------------------------- | ----------------- |
+| /restaurants/login                                            | 餐厅管理后台账号登录                                      | POST              |
+| /restaurants/join                                             | 餐厅管理后台账号创建                                      | POST              |
+| /restaurants/{restaurant_id}/menu                             | 餐厅的餐单资料                                            | GET, POST, DELETE |
+| /restaurants/{restaurant_id}/menu/{food_id}                   | 菜品的具体信息                                            | GET, PUT, DELETE  |
+| /restaurants/{restaurant_id}/orders                           | 餐厅的订单列表，包含待处理的和已处理的                    | GET, POST         |
+| /restaurants/{restaurant_id}/orders?date={}&user={}&status={} | 通过订单的日期，下单user_id以及完成状态status进行检索     | GET               |
+| /restaurants/{restaurant_id}/orders/{order_id}                | 通过order自身的id来查看订单数据                           | GET, PUT, DELETE  |
+| /restaurants/{restaurant_id}/orders/{order_id}/{food_id}      | 餐厅管理员查看订单里的菜品的信息，重定向到/menu/{food_id} | GET               |
+| /restaurants/{restaurant_id}/settings                          | 修改餐厅的各种信息，如地址，电话等                        | PUT, GET               |
 
 user的信息管理URI，考虑到我们的用户仅仅需要查看订单，修改购物车以及支付，所以很多操作都只需要GET HTTP方法就可以了。支付方式暂时只支持微信支付。而且是扫码点餐，是在实体餐厅中扫码，所以所有的订单记录资源都可以作为当前餐厅的子资源。同时由于暂时不是很清楚微信小程序的工作原理，所以暂定顾客user的账号是其手机号码，密码是手机号码通过passlib库中的passlib.hash中的pbkdf2_sha256.hash('手机号码')来生成密码。(注：hash()函数需要unicode类型作为传入参数)
 
@@ -59,7 +60,7 @@ In the URL there should be a QR code and user can login with it.
               "user_id": "3062",
               "username": 'Jcak',
               "user_password": "123456",
-              "restaurant_id": "9527"
+              "restaurant_id": 9527
             }
 
 + Response 200 (application/json)
@@ -83,7 +84,7 @@ In the URL there should be a QR code and user can login with it.
 
 + Parameters
 
-    + user_id: 123 (int) - 用户的ID
+    + user_id: "123" (string) - 用户的ID
     + restaurant_id: 9527 (int) - 餐厅的ID
 
 ### 获得客户端餐厅菜单界面的信息 [GET]
@@ -97,7 +98,7 @@ In this URL, the client can can the food infomation json
 
 + Parameters
 
-    + user_id: 123 (int) - 用户的ID
+    + user_id: "123" (string) - 用户的ID
     + restaurant_id: 9527 (int) - 餐厅的ID
     + food_id: 1 (int) - 查看的菜单里的菜品的ID
 
@@ -121,7 +122,7 @@ In this URL, the client can can the food infomation json
 
 + Parameters
 
-    + user_id: 123 (int) - 用户的ID
+    + user_id: "123" (string) - 用户的ID
     + restaurant_id: 234 (int) - 餐厅的ID
 
 + Model (application/json)
@@ -150,7 +151,7 @@ In this URL, the client can can the food infomation json
 
 + Parameters
 
-    + user_id: 123 (int) - 用户的ID
+    + user_id: "123" (string) - 用户的ID
     + restaurant_id: 234 (int) - 餐厅的ID
     + order_id: 1 (int) - 查看的订单的ID
 
@@ -177,19 +178,11 @@ In this URL, the client can can the food infomation json
 
     [Order][]
 
-+ Response 400 (application/json)
-
-    + Body
-
-            {
-              "message": "No such order exists"
-            }
-
 ## Food Information of Order [/users/{user_id}/{restaurant_id}/orders/{order_id}/{food_id}]
 
 + Parameters
 
-    + user_id: 123 (int) - 用户的ID
+    + user_id: "123" (string) - 用户的ID
     + restaurant_id: 234 (int) - 餐厅的ID
     + order_id: 1 (int) - 查看的订单的ID
     + food_id: 1 (int) - 查看的订单里的菜品的ID
@@ -212,12 +205,13 @@ In this URL, the client can can the food infomation json
 
 + Parameters
 
-    + user_id: 123 (int) - 用户的ID
+    + user_id: "123" (string) - 用户的ID
     + restaurant_id: 234 (int) - 餐厅的ID
 
 ### 客户端获得支付的选项的网页 [GET]
+返回的时URL数组，里面是不同的支付方式所对应的网址
 
-+ Response 200
++ Response 200 (applicaton/json)
 
     + Body
 
@@ -235,24 +229,20 @@ In this URL, the client can can the food infomation json
               "orders":
               [
                 {
-                  "order_history_id": 1,
-                  "date": "2018.6.18",
                   "desk_number": 2,
                   "total_price": 121,
                   "restaurant_id": 9527,
-                  "user_id": 3062
+                  "user_id": "3062"
                 }
               ],
               "order_items":
               [
                 {
-                  "order_history_item_id": 1,
                   "number": 2,
-                  "name": "doufu",
+                  "name": "豆腐",
                   "description": "delicious",
                   "image": "/image/doufu.png",
                   "price": 12,
-                  "order_history_id": 34
                 }
               ]
             }
@@ -274,7 +264,7 @@ The restaurant administrator login website. Because the database didn't need the
     + Body
 
             {
-              "restaurant_admin_id": 123,
+              "restaurant_admin_id": "123",
               "restaurant_admin_password": 1234,
               "restaurant_id": 9527
             }
@@ -306,7 +296,7 @@ The restaurant administrator login website. Because the database didn't need the
 
             {
               "restaurant_id": 9527,
-              "restaurant_admin_id": 123,
+              "restaurant_admin_id": '123',
               "restaurant_admin_password": 1234,
               "restaurant_name": "Eorder",
               "restaurant_information": "小吃店"
@@ -350,10 +340,25 @@ The restaurant administrator login website. Because the database didn't need the
     [Restaurants Food][]
 
 ### 服务端发送修改当前菜单的请求 [POST]
-一次可以提交多个food对象
-+ Request
+一次可以提交多个food对象，且里面不用POST食物的id，但是GET的话可以获得id,available属性要是string
++ Request (application/json)
 
-    [Restaurants Food][]
+    + Body
+
+            {
+              "foods":
+              [
+                {
+                  "name": "豆腐",
+                  "price": 10,
+                  "food_type": "素食",
+                  "description": "美味",
+                  "image": "/image/doufu.png",
+                  "available": "True",
+                  "restaurant_id": 9527
+                }
+              ]
+            }
 
 + Response 200 (application/json)
 
@@ -365,9 +370,24 @@ The restaurant administrator login website. Because the database didn't need the
 
 ### 服务端发送批量删除菜单中菜品的请求 [DELETE]
 每次只能删除一个food对象
-+ Request
++ Request (applicaton/json)
 
-    [Restaurants Food][]
+    + Body
+
+            {
+              "foods":
+              [
+                {
+                  "name": "豆腐",
+                  "price": 10,
+                  "food_type": "素食",
+                  "description": "美味",
+                  "image": "/image/doufu.png",
+                  "available": "True",
+                  "restaurant_id": 9527
+                }
+              ]
+            }
 
 + Response 204
 
@@ -388,7 +408,7 @@ The restaurant administrator login website. Because the database didn't need the
     + food_id: 1 (int) - 查看的订单里的菜品的ID
 
 + Model (application/json)
-返回food类型的数组
+返回food类型的数组，注意available中的字符串要为true或者false，大小写随意
     + Body
 
             {
@@ -401,7 +421,7 @@ The restaurant administrator login website. Because the database didn't need the
                   "food_type": "素食",
                   "description": "美味",
                   "image": "/image/doufu.png",
-                  "available": true
+                  "available": "True",
                   "restaurant_id": 9527
                 }
               ]
@@ -415,11 +435,26 @@ The restaurant administrator login website. Because the database didn't need the
 
 ### 服务端发送修改当前餐厅菜单中特定菜品的信息的请求 [PUT]
 
-修改菜品的信息
+修改菜品的信息，每次只能修改一个，不过传送的仍然是数组形式，具体条件注意Request。如果put的食物是不存在与数据库的，则数据库会将其添加到数据库中并分配一个新的id，不一定是原来的id
 
-+ Request
++ Request (applicaton/json)
 
-    [Restaurants Food][]
+    + Body
+
+            {
+              "foods":
+              [
+                {
+                  "name": "豆腐",
+                  "price": 10,
+                  "food_type": "素食",
+                  "description": "美味",
+                  "image": "/image/doufu.png",
+                  "available": "True",
+                  "restaurant_id": 9527
+                }
+              ]
+            }
 
 + Response 200 (application/json)
 
@@ -471,16 +506,8 @@ The restaurant administrator login website. Because the database didn't need the
 
     [Restaurants Orders List][]
 
-+ Response 400 (applicaton/json)
-
-    + Body
-
-            {
-              "message": "No such order {order_id} exists"
-            }
-
 ### 服务端发送在当前餐厅订单的列表创建订单的请求 [POST]
-将详细的订单的信息发送到服务端，一次可以创建一个order类，每次订单包含其中的order_item类
+将详细的订单的信息发送到服务端，一次可以创建一个order类，每次订单包含其中的若干个order_item类，且不需要POST order类的id与date属性，order_item类不需要POST order_item_id与order_id属性
 
 + Request (applicaton/json)
 
@@ -490,8 +517,6 @@ The restaurant administrator login website. Because the database didn't need the
               "orders":
               [
                 {
-                  'order_id': 123,
-                  'date': '2018.6.18',
                   'desk_number': 2,
                   'total_price': 123.4,
                   'restaurant_id': 9527
@@ -500,11 +525,9 @@ The restaurant administrator login website. Because the database didn't need the
               "order_items":
               [
                 {
-                  "order_item_id": 1,
-                  "order_id": 2,
                   "number" : 2,
                   "name": "豆腐",
-                  “price”: 10,
+                  "price": 10,
                   "description": "美味",
                   "image": "/image/doufu.png"
                 }
@@ -519,11 +542,16 @@ The restaurant administrator login website. Because the database didn't need the
               "URL": "/restaurants/{restaurant_id}/orders/{order_id}"
             }
 
+
 ### 服务端发送删除在当前餐厅的订单列表中特定订单的请求 [DELETE]
 一次只能删除一个订单
-+ Request
++ Request (applicaton/json)
 
-    [Restaurants Orders List][]
+    + Body
+
+            {
+              "order_id": 1
+            }
 
 + Response 204
 
@@ -546,7 +574,7 @@ The restaurant administrator login website. Because the database didn't need the
                   "order_id": 2,
                   "number" : 2,
                   "name": "豆腐",
-                  “price”: 10,
+                  "price": 10,
                   "description": "美味",
                   "image": "/image/doufu.png"
                 }
@@ -561,9 +589,22 @@ The restaurant administrator login website. Because the database didn't need the
 
 ### 服务端发送修改当前餐厅特定订单信息的请求 [PUT]
 可以添加多个order_item类
-+ Request
++ Request (application/json)
 
-    [Restaurants Order][]
+    + Body
+
+            {
+              "order_items":
+              [
+                {
+                  "number" : 2,
+                  "name": "豆腐",
+                  "price": 10,
+                  "description": "美味",
+                  "image": "/image/doufu.png"
+                }
+              ]
+            }
 
 + Response 200 (application/json)
 
@@ -591,7 +632,7 @@ The restaurant administrator login website. Because the database didn't need the
 
     + restaurant_id: 9527 (int) - 餐厅的ID
     + order_id: 1 (int) - 订单的ID
-    + food_id: 1 (int) - 订单里菜品的ID
+    + food_id: 1 (int) - 订单里菜品的id
 
 ### 服务端获得当前餐厅特定订单中特定菜品的信息 [GET]
 
@@ -602,3 +643,53 @@ The restaurant administrator login website. Because the database didn't need the
             {
               "URL": "/restaurants/{restaurant_id}/menu/{food_id}"
             }
+
++ Response 400 (application/json)
+
+    + Body
+
+            {
+              "message": "The food doesn't exist"
+            }
+
+## Restaurant Settings [/restaurants/{restaurant_id}/settings ]
+
++ Parameters:
+
+    + restaurant_id: 9527 (int) - 餐厅的ID
+
+### 餐厅管理员获得原来的餐厅的地址等信息 [GET]
+Request里面的user_id是餐厅管理员的id
+
++ Response 200 (applicaton/json)
+
+    + Body
+
+            {
+              "name": "The fourth canteen",
+              "information": "SYSU Canteen",
+              "address": "GuangZhou",
+              "phone_number": "88888888",
+              "open_time": "8:00-20:00",
+              "bulletin": "Stop Today",
+              "user_id": "123"
+            }
+
+### 餐厅管理员将餐厅的地址等信息发送到服务端 [PUT]
+Request里面的user_id是餐厅管理员的id，所以是string类型，且注意phone number是string
+
++ Request (applicaton/json)
+
+    + Body
+
+            {
+              "name": "The fourth canteen",
+              "information": "SYSU Canteen",
+              "address": "GuangZhou",
+              "phone_number": "88888888",
+              "open_time": "8:00-20:00",
+              "bulletin": "Stop Today",
+              "user_id": "123"
+            }
+
++ Response 204
