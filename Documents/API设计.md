@@ -224,7 +224,12 @@ In this URL, the client can can the food infomation json
     + Body
 
             {
-              "URL": ["example.com"]
+              "payments":
+              [
+                {
+                  "URL": "example.com"
+                }
+              ]
             }
 
 ### 客户端支付成功后向服务端发送订单信息 [POST]
@@ -509,6 +514,7 @@ The restaurant administrator login website. Because the database didn't need the
                   'date': '2018.6.18',
                   'desk_number': 2,
                   'total_price': 123.4,
+                  'status': 'new',
                   'restaurant_id': 9527
                 }
               ]
@@ -535,6 +541,7 @@ The restaurant administrator login website. Because the database didn't need the
                 {
                   'desk_number': 2,
                   'total_price': 123.4,
+                  'status': 'new',
                   'restaurant_id': 9527
                 }
               ],

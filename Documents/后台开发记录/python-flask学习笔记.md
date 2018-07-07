@@ -130,7 +130,7 @@ api.init_app(app)
 + 在本次实验中，我把MySQL的root@localhost的密码暂时设置为root123456.[具体介绍](https://www.cnblogs.com/fireporsche/p/8535002.html)
 + 在mysql中，source /path/*.sql 可以导入sql建立数据库。
 + SHOW COLUMNS FROM [TABLE_NAME] FROM [DATABASE_NAME] 可以展示talbe的column属性
-+ DROP [DATABASE_NAME] 可以删除database。
++ DROP database [DATABASE_NAME] 可以删除database。
 + delete [row] from [table] where [condition] 是删除数据库的语法
 + 创建数据库需要设置为UTF-8，[具体链接](https://dba.stackexchange.com/questions/76788/create-a-database-with-charset-utf-8) ,调用命令：**CREATE DATABASE rbac CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;**。查看全局character set性质的[参考链接](https://makandracards.com/makandra/2529-show-and-change-mysql-default-character-set)。查看具体的数据库，tables等character set性质的[参考链接](https://stackoverflow.com/questions/1049728/how-do-i-see-what-character-set-a-mysql-database-table-column-is)
 
