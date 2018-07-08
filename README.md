@@ -1,4 +1,12 @@
-# 目录
+## SYSU SE-308 软件综合实训
+
+#### 目录
+[软件设计文档](https://github.com/sysu-badass/Dashboard/blob/master/Documents/%E7%BB%BC%E5%90%88%E5%AE%9E%E8%AE%AD%E6%96%87%E6%A1%A3/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md)
+
+
+## 系统分析与设计
+
+#### 目录
 1. [About  (项目规划)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/about.md)
 2. [Team profile (团队组建)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Team-profile.md)
 3. [Investigation (项目前期调研)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/Investigation-report.md)
@@ -40,8 +48,8 @@
 		- [查看餐品详细信息](https://github.com/sysu-badass/wechat-end-web-page/raw/master/performance/perform3.gif)
 		- [添加餐品到购物车](https://github.com/sysu-badass/wechat-end-web-page/raw/master/performance/perform1.gif)
 		- [查看个人信息以及历史订单](https://github.com/sysu-badass/wechat-end-web-page/raw/master/performance/perform2.gif)
-		
-		
+
+
 X1 [meet_recording](https://github.com/sysu-badass/Dashboard/tree/master/Documents/meeting-record)
   - [inception meeting (2018/03/26)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/meeting-record/inception-meeting.md)
   - [iteration1 meeting(2018/04/14)](https://github.com/sysu-badass/Dashboard/blob/master/Documents/meeting-record/iteration1-meeting.md)
