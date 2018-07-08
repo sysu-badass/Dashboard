@@ -529,7 +529,7 @@ The restaurant administrator login website. Because the database didn't need the
     [Restaurants Orders List][]
 
 ### 服务端发送在当前餐厅订单的列表创建订单的请求 [POST]
-将详细的订单的信息发送到服务端，一次可以创建一个order类，每次订单包含其中的若干个order_item类，且不需要POST order类的id与date属性，order_item类不需要POST order_item_id与order_id属性
+将详细的订单的信息发送到服务端，一次可以创建一个order类，每次订单包含其中的若干个order_item类，且不需要POST order类的id与date属性，order_item类不需要POST order_item_id与order_id属性。如果是修改order的status，则可以添加order_id的值
 
 + Request (applicaton/json)
 
@@ -539,6 +539,7 @@ The restaurant administrator login website. Because the database didn't need the
               "orders":
               [
                 {
+                  'order_id': null,
                   'desk_number': 2,
                   'total_price': 123.4,
                   'status': 'new',

@@ -133,6 +133,7 @@ api.init_app(app)
 + DROP database [DATABASE_NAME] 可以删除database。
 + delete [row] from [table] where [condition] 是删除数据库的语法
 + 创建数据库需要设置为UTF-8，[具体链接](https://dba.stackexchange.com/questions/76788/create-a-database-with-charset-utf-8) ,调用命令：**CREATE DATABASE rbac CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;**。查看全局character set性质的[参考链接](https://makandracards.com/makandra/2529-show-and-change-mysql-default-character-set)。查看具体的数据库，tables等character set性质的[参考链接](https://stackoverflow.com/questions/1049728/how-do-i-see-what-character-set-a-mysql-database-table-column-is)
++ [MySQL导入导出sql文件](https://www.cnblogs.com/jwlfpzj/articles/7998395.html)
 
 ### cURL
 在本次实验中，我发现网上大部分教程都是用cURL进行后台的测试与调试，以下是我记录的一些简单的用法
