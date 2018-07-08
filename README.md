@@ -7,6 +7,7 @@
 
 [商户PC端代码](https://github.com/sysu-badass/merchant-end-web-page)
 
+[微信小程序端代码](https://github.com/sysu-badass/wechat-end-web-page)
 ## 系统分析与设计
 
 #### 目录
