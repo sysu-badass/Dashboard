@@ -25,7 +25,7 @@
 	- 8.1 [python代码规范](https://github.com/sysu-badass/Dashboard/blob/master/Documents/%E7%94%9F%E4%BA%A7%E8%A7%84%E8%8C%83%E4%B8%8E%E6%8C%87%E5%8D%97/python%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83.md)
 	- 8.2 [REST API 设计规范](https://github.com/sysu-badass/Dashboard/blob/master/Documents/%E7%94%9F%E4%BA%A7%E8%A7%84%E8%8C%83%E4%B8%8E%E6%8C%87%E5%8D%97/REST_API%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.md)
 	- 8.3 [框架目录设计与逻辑架构与 ECB 的关系](https://github.com/sysu-badass/Dashboard/blob/master/Documents/ECB.md)
-	- 8.4 [物理架构云上部署 dock-compose.yml 文件编写与使用](https://github.com/sysu-badass/Dashboard/blob/master/Documents/docker-compose.yml)
+	- 8.4 [物理架构云上部署 dock-compose.yml 文件编写与使用](https://github.com/sysu-badass/Dashboard/blob/master/Documents/deployment.md)
 
 9. demo运行效果
 	- 商户PC端
