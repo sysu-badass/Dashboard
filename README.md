@@ -5,6 +5,8 @@
 
 [软件需求说明文档](https://github.com/sysu-badass/Dashboard/blob/master/Documents/%E7%BB%BC%E5%90%88%E5%AE%9E%E8%AE%AD%E6%96%87%E6%A1%A3/SRS.pdf)
 
+[安装部署说明](https://github.com/sysu-badass/Dashboard/blob/master/Documents/综合实训文档/安装部署说明.md)
+
 [后台代码](https://github.com/sysu-badass/BackEndServer)
 
 [商户PC端代码](https://github.com/sysu-badass/merchant-end-web-page)
